@@ -14,6 +14,16 @@ public class Apple extends Food {
     public void consume() {
         System.out.println(this + " съедено");
     }
+    // Переопределить подсчёт каллорий
+    public double calculateCalories() {
+        if(this.size.equals("Горький"))
+            return 90.0;
+        else if(this.size.equals("Насыщенный"))
+            return 75.0;
+        else if(this.size.equals("Восточный"))
+            return 60.0;
+            else return 0.0;
+    }
     // Селектор для доступа к полю данных РАЗМЕР
     public String getSize() { return size; }
     // Модификатор для изменения поля данных РАЗМЕР

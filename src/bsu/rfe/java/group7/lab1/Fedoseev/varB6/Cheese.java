@@ -7,6 +7,10 @@ public class Cheese extends Food {
     public void consume() {
         System.out.println(this + " съеден");
     }
+    //сыр без параметров, значит, одна и та же каллорийность
+    public double calculateCalories() {
+        return 300.0;
+    }
 // Переопределять метод equals() в данном классе не нужно, т.к. он
 // не добавляет новых полей данных, а сравнение по внутреннему полю name
 // уже реализовано в базовом классе

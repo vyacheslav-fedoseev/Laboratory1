@@ -1,6 +1,6 @@
 package bsu.rfe.java.group7.lab1.Fedoseev.varB6;
 
-public abstract class Food implements Consumable {
+public abstract class Food implements Consumable, Nutritious {
     String name = null;
     public Food(String name) {
         this.name = name;
