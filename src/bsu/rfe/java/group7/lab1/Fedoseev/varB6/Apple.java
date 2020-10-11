@@ -15,9 +15,7 @@ public class Apple extends Food {
         System.out.println(this + " съедено");
     }
     // Селектор для доступа к полю данных РАЗМЕР
-    public String getSize() {
-        return size;
-    }
+    public String getSize() { return size; }
     // Модификатор для изменения поля данных РАЗМЕР
     public void setSize(String size) {
         this.size = size;

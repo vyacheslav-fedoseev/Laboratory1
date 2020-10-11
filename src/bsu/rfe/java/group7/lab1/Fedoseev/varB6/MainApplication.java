@@ -20,6 +20,10 @@ public class MainApplication {
             if (parts[0].equals("Apple")) {
 // У яблока – 1 параметр, который находится в parts[1]
                 breakfast[itemsSoFar] = new Apple(parts[1]);
+            } else
+            if (parts[0].equals("Coffee")) {
+// У кофе – 1 параметр, который находится в parts[1]
+                breakfast[itemsSoFar] = new Coffee(parts[1]);
             }
 // ... Продолжается анализ других продуктов для завтрака
             itemsSoFar++;
