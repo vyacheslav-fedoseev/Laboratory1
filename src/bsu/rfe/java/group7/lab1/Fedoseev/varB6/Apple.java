@@ -16,13 +16,13 @@ public class Apple extends Food {
     }
     // Переопределить подсчёт каллорий
     public double calculateCalories() {
-        if(this.size.equals("Горький"))
-            return 90.0;
-        else if(this.size.equals("Насыщенный"))
-            return 75.0;
-        else if(this.size.equals("Восточный"))
-            return 60.0;
-            else return 0.0;
+        if(this.size.equals("большое"))
+            return 150.0;
+        else if(this.size.equals("среднее"))
+            return 100.0;
+        else if(this.size.equals("малое"))
+            return 50.0;
+        else return 0.0;
     }
     // Селектор для доступа к полю данных РАЗМЕР
     public String getSize() { return size; }

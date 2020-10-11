@@ -9,6 +9,7 @@ public class MainApplication {
 
         // Определение ссылок на продукты завтрака
         Food[] breakfast = new Food[20];
+        boolean isSumCalories = false;
         //Разнообразие продуктов
         final int variety = 3;
         //Счётчик для количества продуктов, где:
@@ -20,7 +21,6 @@ public class MainApplication {
         for(int i = 0; i < variety; ++i){
             count[i] = 0;
         }
-
         // Анализ аргументов командной строки и создание для них
         // экземпляров соответствующих классов для завтрака
         int itemsSoFar = 0;
@@ -36,26 +36,40 @@ public class MainApplication {
                 breakfast[itemsSoFar] = new Cheese();
                 count[1]++;
             } else
-
             if (parts[0].equals("Coffee")) {
 // У кофе – 1 параметр, который находится в parts[1]
                 breakfast[itemsSoFar] = new Coffee(parts[1]);
                 count[2]++;
             }
+            //если один из параметров -calories, то нам впоследствии необходимо
+            //посчитать калорийность всего завтрака
+            if (parts[0].equals("-calories")) {
+                isSumCalories = true;
+            }
 // ... Продолжается анализ других продуктов для завтрака
-            itemsSoFar++;
+            else itemsSoFar++;
         }
 // Перебор всех элементов массива
-        for (Food item: breakfast)
-            if (item!=null)
+        for (Food item: breakfast) {
+            if (item != null) {
 // Если элемент не null – употребить продукт
                 item.consume();
-            else
+            } else
 // Если дошли до элемента null – значит достигли конца
 // списка продуктов, ведь 20 элементов в массиве было
 // выделено с запасом, и они могут быть не
 // использованы все
                 break;
+        }
+        if (isSumCalories){
+            double sumOfCalories = 0.0;
+            for (Food item: breakfast)
+                if (item!=null) {
+// Если элемент не null – посчитать калорийность и просуммировать с итоговой суммой
+                    sumOfCalories += item.calculateCalories();
+                } else break;
+            System.out.println("Калорийность завтрака составляет " + sumOfCalories + " калорий.");
+        }
         System.out.println("Употреблено в количестве:");
         System.out.println("Яблоко: " + count[0] + "\nСыр: " + count[1] + "\nКофе: " + count[2]);
         System.out.println("Всего хорошего!");

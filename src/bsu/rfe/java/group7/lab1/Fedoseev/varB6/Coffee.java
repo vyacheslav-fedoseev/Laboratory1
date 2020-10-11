@@ -14,12 +14,12 @@ public class Coffee extends Food{
     }
     // Переопределить подсчёт каллорий
     public double calculateCalories() {
-        if(this.aroma.equals("Большое"))
-            return 150.0;
-        else if(this.aroma.equals("Среднее"))
-            return 100.0;
-        else if(this.aroma.equals("Маленькое"))
-            return 50.0;
+        if(this.aroma.equals("горький"))
+            return 90.0;
+        else if(this.aroma.equals("насыщенный"))
+            return 75.0;
+        else if(this.aroma.equals("восточный"))
+            return 60.0;
         else return 0.0;
     }
     // Селектор для доступа к полю данных АРОМАТ
