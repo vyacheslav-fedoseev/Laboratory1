@@ -68,15 +68,6 @@ public class MainApplication {
                 }
             });
         }
-        /*
-        Arrays.sort(breakfast,new Comparator() {
-				public int compare(Object f1, Object f2) {
-				if (f1==null) return 1;
-				if (f2==null) return -1;
-				return ((Food)f1).CalculateCalories().compareTo(((Food)f2).CalculateCalories());
-				}
-				});
-        */
 // Перебор всех элементов массива
         for (Food item: breakfast) {
             if (item != null) {
