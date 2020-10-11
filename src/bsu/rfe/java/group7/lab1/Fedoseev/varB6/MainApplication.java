@@ -1,6 +1,10 @@
 // Объявление класса частью пакета
 package bsu.rfe.java.group7.lab1.Fedoseev.varB6;
 
+import java.lang.reflect.Constructor;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class MainApplication {
     // Конструктор класса отсутствует!!!
     // Главный метод главного класса
@@ -10,6 +14,7 @@ public class MainApplication {
         // Определение ссылок на продукты завтрака
         Food[] breakfast = new Food[20];
         boolean isSumCalories = false;
+        boolean isSort = false;
         //Разнообразие продуктов
         final int variety = 3;
         //Счётчик для количества продуктов, где:
@@ -45,10 +50,33 @@ public class MainApplication {
             //посчитать калорийность всего завтрака
             if (parts[0].equals("-calories")) {
                 isSumCalories = true;
-            }
+            } else
+            //если -sort, то впоследствии нужно отсортировать
+            if (parts[0].equals("-sort")) {
+                isSort = true; }
 // ... Продолжается анализ других продуктов для завтрака
             else itemsSoFar++;
         }
+        //сортировка, если она нужна
+        if(isSort){
+            Arrays.sort(breakfast, new Comparator() {
+                public int compare(Object f1, Object f2) {
+                    if (f1==null) return 1;
+                    if (f2==null) return -1;
+                    if (((Food)f1).calculateCalories() > ((Food)f2).calculateCalories()) return 1;
+                    else return -1;
+                }
+            });
+        }
+        /*
+        Arrays.sort(breakfast,new Comparator() {
+				public int compare(Object f1, Object f2) {
+				if (f1==null) return 1;
+				if (f2==null) return -1;
+				return ((Food)f1).CalculateCalories().compareTo(((Food)f2).CalculateCalories());
+				}
+				});
+        */
 // Перебор всех элементов массива
         for (Food item: breakfast) {
             if (item != null) {
